@@ -14,6 +14,7 @@ class MinHeap:
     def add(self, val):
         self.heap.append(val)
         self.heapify_up(self.heap, self.size() - 1, self.size())
+        return self.heap
 
     def extract(self):
         if self.size() == 0:
@@ -24,6 +25,8 @@ class MinHeap:
             self.heapify_down(self.heap, 0, self.size())
         else:
             return self.heap.pop()
+
+        return temp
 
     @staticmethod
     def get_children_indices(size, parent_index):
