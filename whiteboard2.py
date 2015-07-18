@@ -31,9 +31,26 @@ def detect_cycle(test):
 
     return " ".join(pattern)
 
-test = '2 0 6 3 1 6 3 1 6 3 1'
-test2 = '3 4 8 0 11 9 7 2 5 6 10 1 49 49 49 49'
-test3 = '1 2 3 1 2 3'
-print(detect_cycle(test))
-print(detect_cycle(test2))
-print(detect_cycle(test3))
+# test = '2 0 6 3 1 6 3 1 6 3 1'
+# test2 = '3 4 8 0 11 9 7 2 5 6 10 1 49 49 49 49'
+# test3 = '1 2 3 1 2 3'
+# print(detect_cycle(test))
+# print(detect_cycle(test2))
+# print(detect_cycle(test3))
+
+
+def print_words(sentence):
+
+    words = []
+    subword = ''
+    for char in sentence:
+        if char.isalpha():
+            subword += char.lower()
+        else:
+            if len(subword) > 0:
+                words.append(subword)
+                subword = ''
+    return ' '.join(words)
+
+print(print_words('(--9Hello----World...--)'))
+print(print_words('13What213are;11you-123+138doing7'))
