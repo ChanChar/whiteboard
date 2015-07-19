@@ -19,3 +19,6 @@ class StaticArray:
 
     def __repr__(self):
         return self.store
+
+    def __str__(self):
+        return "{}".format(self.store)
