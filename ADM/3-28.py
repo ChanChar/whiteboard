@@ -17,13 +17,8 @@ def without_division(array):
     for i in range(0, len(array)):
         products[i] *= lower_prod
         lower_prod *= array[i]
-
-    i = len(array) - 1
-    while i != -1:
-        products[i] *= upper_prod
-        upper_prod *= array[i]
-        i -= 1
-
+        products[len(array) - 1 - i] *= upper_prod
+        upper_prod *= array[len(array) - 1 - i]
     return products
 
 print(without_division([1, 2, 3, 5, 6]))
