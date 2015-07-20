@@ -1,16 +1,17 @@
 from static_array import StaticArray
 
-class DynamicArray:
+class RingBuffer:
     def __init__(self):
-        self.store, self.capacity, self.length = StaticArray(8), 8, 0
+        self.store = StaticArray(8)
+        self.capacity, self.start, self.length = 8, 0, 0
 
     def __getitem__(self, index):
         self.__check_index(index)
-        return self.store[index]
+        return self.store[(self.start + index) % self.capacity]
 
     def __setitem__(self, index, val):
         self.__check_index(index)
-        self.store[index] = val
+        self.store[(self.start + index) % self.capacity] = val
 
     def __repr__(self):
         return self.store
@@ -24,33 +25,28 @@ class DynamicArray:
     def pop(self):
         if self.length == 0:
             raise IndexError("Can't pop from an empty list!")
-        val = self.store[self.length - 1]
-        self.store[self.length-1] = None
+        val = self[self.length - 1]
+        self[self.length-1] = None
         self.length -= 1
         self.__check_capacity()
         return val
 
     def append(self, val):
         self.__check_capacity()
-        self.store[self.length] = val
+        self[self.length] = val
         self.length += 1
 
     def shift(self):
-        val = self.store[0]
-        for i in range(1, self.length):
-            self.store[i - 1] = self.store[i]
-        self.store[self.length - 1] = None
+        val, self[0] = self[0], None
+        self.start = (self.start + 1) % self.capacity
         self.length -= 1
         self.__check_capacity()
         return val
 
     def unshift(self, val):
         self.__check_capacity()
-        i = self.length
-        while i > 0:
-            self.store[i] = self.store[i-1]
-            i -= 1
-        self.store[0] = val
+        self.start = (self.start - 1) % self.capacity
+        self[0] = val
         self.length += 1
 
     def __check_index(self, index):
@@ -71,5 +67,5 @@ class DynamicArray:
             new_capacity = self.capacity // 2
         new_store = StaticArray(new_capacity)
         for i in range(self.length):
-            new_store[i] = self.store[i]
-        self.capacity, self.store = new_capacity, new_store
+            new_store[i] = self[i]
+        self.capacity, self.store, self.start = new_capacity, new_store, 0
