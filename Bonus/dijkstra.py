@@ -17,6 +17,8 @@ def dijkstra(source):
         for e2 in v.out_edges():
             v2 = e2.to_vertex
             c2 = c + e2.cost
+            if v2 in results:
+                pass
             frontier.insert(v2, e2, c2)
 
 
