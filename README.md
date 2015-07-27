@@ -25,7 +25,6 @@ Most are implemented in Python.
 2. [Bubblesort](Sorts/bubblesort.py)
 3. [Mergesort](Sorts/mergesort.py)
 4. [Insertion Sort](Sorts/insertion_sort.py)
-<!-- 5. [Heapsort](Sorts/heapsort.py) -->
 
 <!--
 1. LRU Cache
