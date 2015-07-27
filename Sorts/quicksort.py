@@ -1,12 +1,11 @@
 from random import randrange
+import unittest
 
 def quicksort(array, start=0, length=None):
     if length is None:
         length = len(array)
-
     if length < 2:
         return array
-
     pivot_idx = partition(array, start, length)
     left_length = pivot_idx - start
     right_length = length - (left_length + 1)
@@ -28,4 +27,17 @@ def partition(array, start, length):
 
     return pivot_idx
 
-print(quicksort([1,4,7,3,7,2,1,6,8,4]))
+
+class TestQuicksort(unittest.TestCase):
+
+    def test_empty_array(self):
+        self.assertEqual(quicksort([]), [])
+
+    def test_integers(self):
+        self.assertEqual(quicksort([5, 9, 8, 4, 10, 6, 7, 2, 3, 1]), sorted([5, 9, 8, 4, 10, 6, 7, 2, 3, 1]))
+
+    def test_strings(self):
+        self.assertEqual(quicksort(['zebra', 'penguin', 'aardvark', 'basilisk']), sorted(['zebra', 'penguin', 'aardvark', 'basilisk']))
+
+if __name__ == '__main__':
+    unittest.main()

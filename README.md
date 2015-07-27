@@ -22,10 +22,22 @@ Most are implemented in Python.
 #### Sort
 
 1. [Quicksort](Sorts/quicksort.py)
+2. [Bubblesort](Sorts/bubblesort.py)
+3. [Mergesort](Sorts/mergesort.py)
+4. [Insertion Sort](Sorts/insertion_sort.py)
+<!-- 5. [Heapsort](Sorts/heapsort.py) -->
 
-<!-- 1. LRU Cache
+<!--
+1. LRU Cache
 2. Binary Search Tree
 3. Priority Queue
 4. Priority Queue Map
 5. AVL Tree
-6. B Tree -->
+6. B Tree
+7. Union-find
+
+a. Shellsort
+b. Radixsort
+c. Heapsort
+
+-->
