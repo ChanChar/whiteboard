@@ -23,6 +23,9 @@ class MinMaxStack:
         # Made it easier for myself. :[
         self.store = []
 
+    def __len__(self):
+        return len(self.store)
+
     def append(self, value):
         if len(self.store) == 0:
             # where [value, current min, current max]
@@ -33,7 +36,7 @@ class MinMaxStack:
             self.store.append([value, current_min, current_max])
 
     def pop(self):
-        return self.store[-1][0]
+        return self.store.pop()[0]
 
     def current_min(self):
         return self.store[-1][1]
