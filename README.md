@@ -6,7 +6,7 @@ Most (if not all) are implemented in Python.
 - [Static Array](DS/static_array.py)
 - [Dynamic Array](DS/dynamic_array.py)
 - [Ring Buffer](DS/ring_buffer.py)
-- [Queue](DS/queue.py)
+- [Queue/MinMaxStackQueue](DS/queue.py)
 - [Stack/MinMaxStack](DS/stack.py)
 - [Hash Set](DS/hash_set.py)
 - [Bloom Filter](Bonus/bloom_filter.py)
