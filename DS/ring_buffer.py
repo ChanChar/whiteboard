@@ -1,5 +1,6 @@
 from static_array import StaticArray
 
+# May also be called a deque.
 class RingBuffer:
     def __init__(self):
         self.store = StaticArray(8)
