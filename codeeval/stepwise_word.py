@@ -7,14 +7,11 @@ def longest_word(words):
     return longest
 
 def stepwise_word(word):
-    stepwise = ''
+    stepwise_parts = []
     for i, char in enumerate(list(word)):
-        if i == 0:
-            stepwise += (i * '*' + char)
-        else:
-            stepwise += (" " + i * '*' + char)
+        stepwise_parts.append((i * '*' + char))
 
-    return stepwise
+    return " ".join(stepwise_parts)
 
 words = ['hello', 'cat', 'dog']
 
